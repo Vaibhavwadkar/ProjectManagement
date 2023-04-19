@@ -31,9 +31,19 @@ public class Task {
 
 	@Column(name = "task_due_date")
 	private Date taskDueDate;
+	
+	@Column(name = "task_completed_date")
+	private Date taskCompletedDate;
+	
+	@Column(name = "task_priority")
+	private String taskPriority;
 
 	@Column(name = "task_status")
 	private String taskStatus;
+	
+	@Column(name = "task_comment")
+	private String taskComment;
+	
 	
 	@Column(name = "task_remark")
 	private String taskRemark;
@@ -50,14 +60,17 @@ public class Task {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Task(String taskName, String taskDesc, Date taskStartDate, Date taskDueDate, String taskStatus,String taskRemark,
+	public Task(String taskName, String taskDesc, Date taskStartDate, Date taskDueDate,Date taskCompletedDate, String taskStatus,String taskComment,String taskPriority,String taskRemark,
 			Project projectId, User employeeId) {
 		super();
 		this.taskName = taskName;
 		this.taskDesc = taskDesc;
 		this.taskStartDate = taskStartDate;
 		this.taskDueDate = taskDueDate;
+		this.taskCompletedDate = taskCompletedDate;
 		this.taskStatus = taskStatus;
+		this.taskComment = taskComment;
+		this.taskPriority = taskPriority;
 		this.taskRemark= taskRemark;
 		this.projectId = projectId;
 		this.employeeId = employeeId;
@@ -102,6 +115,16 @@ public class Task {
 	public void setTaskDueDate(Date taskDueDate) {
 		this.taskDueDate = taskDueDate;
 	}
+	
+	
+
+	public Date getTaskCompletedDate() {
+		return taskCompletedDate;
+	}
+
+	public void setTaskCompletedDate(Date taskCompletedDate) {
+		this.taskCompletedDate = taskCompletedDate;
+	}
 
 	public String getTaskStatus() {
 		return taskStatus;
@@ -111,7 +134,21 @@ public class Task {
 		this.taskStatus = taskStatus;
 	}
 	
-	
+	public String getTaskComment() {
+		return taskComment;
+	}
+
+	public void setTaskComment(String taskComment) {
+		this.taskComment = taskComment;
+	}
+
+	public String getTaskPriority() {
+		return taskPriority;
+	}
+
+	public void setTaskPriority(String taskPriority) {
+		this.taskPriority = taskPriority;
+	}
 
 	public String getTaskRemark() {
 		return taskRemark;

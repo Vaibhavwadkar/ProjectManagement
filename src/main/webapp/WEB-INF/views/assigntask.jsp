@@ -35,6 +35,12 @@ User ur = (User)request.getAttribute("user");
   <label for="task-duedate">Task Due Date:</label>
   <input type="date" id="task-duedate" name="task-duedate"><br><br>
   
+  <label for="task-priority">Priority:</label>
+  <select name="priority" id="task-priority">
+	<option value="normal">Normal</option>
+	<option value="high">High</option>
+ </select>
+  
   <input type="submit" value="Submit">
 </form>
 </body>

@@ -32,6 +32,9 @@ public class Project {
 
 	@Column(name = "project_due_date")
 	private Date projectDueDate;
+	
+	@Column(name = "project_complete_date")
+	private Date projectCompleteDate;
 
 	@Column(name = "project_status")
 	private String projectStatus;
@@ -52,13 +55,14 @@ public class Project {
 
 	
 
-	public Project(String projectName, String projectDesc, Date projectStartDate, Date projectDueDate,
+	public Project(String projectName, String projectDesc, Date projectStartDate, Date projectDueDate,Date projectCompleteDate,
 			String projectStatus, String projectRemark, User manager, List<User> employee_id) {
 		super();
 		this.projectName = projectName;
 		this.projectDesc = projectDesc;
 		this.projectStartDate = projectStartDate;
 		this.projectDueDate = projectDueDate;
+		this.projectCompleteDate = projectCompleteDate;
 		this.projectStatus = projectStatus;
 		this.projectRemark = projectRemark;
 		this.manager = manager;
@@ -106,6 +110,19 @@ public class Project {
 	public void setProjectDueDate(Date projectDueDate) {
 		this.projectDueDate = projectDueDate;
 	}
+
+	
+	public Date getProjectCompleteDate() {
+		return projectCompleteDate;
+	}
+
+
+
+	public void setProjectCompleteDate(Date projectCompleteDate) {
+		this.projectCompleteDate = projectCompleteDate;
+	}
+
+
 
 	public String getProjectStatus() {
 		return projectStatus;

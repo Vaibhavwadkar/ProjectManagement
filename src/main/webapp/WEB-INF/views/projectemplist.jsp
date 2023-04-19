@@ -1,3 +1,4 @@
+<%@page import="com.projectmanagement.entities.Task"%>
 <%@page import="com.projectmanagement.entities.User"%>
 <%@page import="com.projectmanagement.entities.Project"%>
 <%@page import="java.util.List"%>
@@ -60,5 +61,43 @@
 			%>
   </tbody>
 </table>
+<% if (request.getAttribute("tasklist") != null) {
+	List<Task> taskls=(List<Task>)request.getAttribute("tasklist"); %>
+	
+	<table>
+  <thead>
+    <tr>
+      <th>Employee Name</th>
+      <th>Task</th>
+      <th>Start Date</th>
+      <th>Due Date</th>
+      <th>Task Priority</th>
+      <th>action</th>
+    </tr>
+  </thead>
+  <tbody>
+  <%
+  
+	for(Task i:taskls){%>
+    <tr>
+      <td><%=i.getEmployeeId().getFirstName()+" "+i.getEmployeeId().getLastName() %></td>
+      <td><%=i.getTaskName() %></td>
+      <td><%=i.getTaskStartDate() %></td>
+      <td><%=i.getTaskDueDate() %></td>
+      <td><%=i.getTaskPriority() %></td>
+      <td>
+      <form action="removetask" method="POST">
+      		<input type="hidden" value=<%=i.getId() %> name="taskid">
+      		<input type="hidden" value=<%=i.getEmployeeId().getId() %> name="empid">
+      		<input type="hidden" value=<%=i.getProjectId().getId() %> name="proid">
+            <input type="submit" value="Remove">
+          </form></td>
+    </tr>
+    <%	}
+			%>
+  </tbody>
+</table>
+	
+<% } %>
 </body>
 </html>
